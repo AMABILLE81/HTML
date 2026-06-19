@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Copa do Mundo FIFA 2026</title>
+    <title>Portal da Copa do Mundo FIFA 2026</title>
     <style>
         /* --- ESTILIZAÇÃO CSS --- */
         :root {
             --primary-color: #006633;
             --secondary-color: #e6b800;
-            --dark-color: #111;
-            --light-color: #f4f4f9;
+            --accent-color: #d32f2f;
+            --dark-color: #1a1a1a;
+            --light-color: #f8f9fa;
         }
 
         * {
@@ -29,68 +30,70 @@
         header {
             background: linear-gradient(135deg, var(--primary-color), #004422);
             color: white;
-            padding: 2rem 1rem;
+            padding: 3rem 1rem;
             text-align: center;
             border-bottom: 5px solid var(--secondary-color);
         }
 
         header h1 {
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             margin-bottom: 0.5rem;
+            letter-spacing: 1px;
         }
 
         header p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             opacity: 0.9;
         }
 
-        /* Contador Regressivo */
-        .countdown-container {
+        /* Status do Torneio */
+        .status-bar {
             background-color: var(--dark-color);
             color: white;
             text-align: center;
-            padding: 1.5rem;
-            font-size: 1.2rem;
+            padding: 1rem;
+            font-size: 1.1rem;
         }
 
-        #countdown {
-            font-weight: bold;
+        .status-bar span {
             color: var(--secondary-color);
-            font-size: 1.5rem;
-            margin-top: 0.5rem;
+            font-weight: bold;
         }
 
         main {
-            max-width: 1100px;
+            max-width: 1200px;
             margin: 2rem auto;
-            padding: 0 1rem;
+            padding: 0 1.5rem;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 2rem;
+            margin: 3rem 0 1.5rem 0;
             color: var(--primary-color);
-            position: relative;
+            font-size: 2rem;
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 0.5rem;
+            display: inline-block;
         }
 
-        /* Grid de Países Sedes */
-        .sedes-grid {
+        .title-container {
+            text-align: center;
+        }
+
+        /* Grid de Conteúdo */
+        .grid-3-col {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
-            margin-bottom: 3rem;
+            margin-bottom: 2rem;
         }
 
         .card {
             background: white;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
             overflow: hidden;
-            transition: transform 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
+            border-top: 4px solid var(--primary-color);
         }
 
         .card-content {
@@ -98,17 +101,46 @@
         }
 
         .card-content h3 {
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
+            margin-bottom: 0.8rem;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        /* Tabela de Novidades */
+        .card-content ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .card-content li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .card-content li::before {
+            content: "📍";
+            position: absolute;
+            left: 0;
+        }
+
+        /* Seção do Formato e Regulamento */
+        .info-box {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-bottom: 3rem;
+        }
+
+        /* Tabelas */
         .info-table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 1rem;
             background: white;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             border-radius: 8px;
             overflow: hidden;
         }
@@ -124,57 +156,158 @@
         }
 
         .info-table tr:nth-child(even) {
-            background-color: #eceff1;
+            background-color: #f2f2f2;
+        }
+
+        /* Destaques de Datas */
+        .highlight-date {
+            color: var(--accent-color);
+            font-weight: bold;
         }
 
         footer {
             background-color: var(--dark-color);
             color: white;
             text-align: center;
-            padding: 1.5rem;
-            margin-top: 3rem;
+            padding: 2rem 1rem;
+            margin-top: 4rem;
             font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
+    <!-- Cabeçalho -->
     <header>
         <h1>COPA DO MUNDO FIFA 2026</h1>
-        <p>A maior Copa da história: 3 países, 48 seleções e uma paixão única!</p>
+        <p>A maior e mais inclusiva edição da história do futebol mundial</p>
     </header>
 
-    <div class="countdown-container">
-        <p>⚽ O espetáculo começou! Acompanhe o maior torneio de futebol do planeta:</p>
-        <div id="countdown">Fase de Grupos em Andamento!</div>
+    <!-- Barra de Status Real-Time -->
+    <div class="status-bar">
+        <span>⚽ STATUS DO TORNEIO:</span> Jogos da fase de grupos acontecendo na América do Norte!
     </div>
 
+    <!-- Conteúdo Principal -->
     <main>
         
-        <h2 class="section-title">Os Três Gigantes da América do Norte</h2>
-        <section class="sedes-grid">
-            <div class="card">
-                <div class="card-content">
-                    <h3>🇨🇦 Canadá</h3>
-                    <p>Recebendo partidas em cidades icônicas como Toronto e Vancouver, trazendo o frio e a hospitalidade canadense para o torneio mundial.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <h3>🇺🇸 Estados Unidos</h3>
-                    <p>O país abriga a maior parte dos jogos, incluindo a grande final em Nova York/Nova Jersey, utilizando estádios de última geração.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <h3>🇲🇽 México</h3>
-                    <p>Fazendo história como o primeiro país a sediar a Copa três vezes. O lendário Estádio Azteca volta a ser palco de momentos mágicos.</p>
-                </div>
-            </div>
-        </section>
+        <!-- SEÇÃO 1: VISÃO GERAL E DATAS CHAVE -->
+        <div class="title-container">
+            <h2 class="section-title">Calendário e Informações Chave</h2>
+        </div>
+        
+        <div class="info-box">
+            <p>Pela primeira vez na história, a Copa do Mundo é organizada conjuntamente por três nações: <strong>Canadá, Estados Unidos e México</strong>. O torneio também marca a estreia do novo formato de competição da FIFA.</p>
+            <br>
+            <table class="info-table">
+                <thead>
+                    <tr>
+                        <th>Evento / Marco</th>
+                        <th>Data / Local</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Partida de Abertura</strong></td>
+                        <td><span class="highlight-date">11 de Junho</span> - Estádio Azteca, Cidade do México (México)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Primeiro Jogo no Canadá</strong></td>
+                        <td><span class="highlight-date">12 de Junho</span> - BMO Field, Toronto</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Primeiro Jogo nos EUA</strong></td>
+                        <td><span class="highlight-date">12 de Junho</span> - SoFi Stadium, Los Angeles</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Grande Final Mundial</strong></td>
+                        <td><span class="highlight-date">19 de Julho</span> - MetLife Stadium, Nova York / Nova Jersey (EUA)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
-        <h2 class="section-title">O que há de novo na Copa de 2026?</h2>
-        <table class="info-table">
-            <thead>
-                <tr>
-                    <th>Mud
+
+        <!-- SEÇÃO 2: AS CIDADES-SEDE DIVIDIDAS POR REGIÕES -->
+        <div class="title-container">
+            <h2 class="section-title">As 16 Cidades-Sede Oficiais</h2>
+        </div>
+        
+        <div class="grid-3-col">
+            <!-- Região Oeste -->
+            <div class="card">
+                <div class="card-content">
+                    <h3>🇺🇸🇨🇦🇲🇽 Região Oeste</h3>
+                    <p style="margin-bottom: 1rem; font-size: 0.9rem; color: #666;">Banhada pelo Oceano Pacífico:</p>
+                    <ul>
+                        <li>Vancouver (Canadá)</li>
+                        <li>Seattle (EUA)</li>
+                        <li>San Francisco / Bay Area (EUA)</li>
+                        <li>Los Angeles (EUA)</li>
+                        <li>Guadalajara (México)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Região Central -->
+            <div class="card">
+                <div class="card-content">
+                    <h3>🇺🇸🇲🇽 Região Central</h3>
+                    <p style="margin-bottom: 1rem; font-size: 0.9rem; color: #666;">O coração do continente:</p>
+                    <ul>
+                        <li>Kansas City (EUA)</li>
+                        <li>Dallas (EUA)</li>
+                        <li>Houston (EUA)</li>
+                        <li>Atlanta (EUA)</li>
+                        <li>Monterrey (México)</li>
+                        <li>Cidade do México (México)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Região Leste -->
+            <div class="card">
+                <div class="card-content">
+                    <h3>🇺🇸🇨🇦 Região Leste</h3>
+                    <p style="margin-bottom: 1rem; font-size: 0.9rem; color: #666;">Na costa do Atlântico:</p>
+                    <ul>
+                        <li>Toronto (Canadá)</li>
+                        <li>Boston (EUA)</li>
+                        <li>Nova York / Nova Jersey (EUA)</li>
+                        <li>Filadélfia (EUA)</li>
+                        <li>Miami (EUA)</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- SEÇÃO 3: O NOVO REGULAMENTO -->
+        <div class="title-container">
+            <h2 class="section-title">Como funciona o novo formato de 48 Seleções?</h2>
+        </div>
+
+        <div class="info-box">
+            <p>A mudança no regulamento alterou drasticamente a dinâmica da competição. Veja as principais regras:</p>
+            <br>
+            <ul style="padding-left: 1.5rem; margin-bottom: 1rem;">
+                <li><strong>Os Grupos:</strong> Estão divididos em <strong>12 grupos de 4 equipes</strong> cada.</li>
+                <li><strong>Classificação:</strong> Avançam para o mata-mata os <strong>2 primeiros colocados</strong> de cada grupo, junto com os <strong>8 melhores 3º colocados</strong> gerais.</li>
+                <li><strong>Mata-Mata Estendido:</strong> Com 32 classificados na fase eliminatória, foi adicionada uma rodada prévia às oitavas de final, chamada de <strong>Fase de 16-avos de final</strong>.</li>
+                <li><strong>Logística:</strong> Para diminuir o desgaste das viagens, as seleções jogam a fase de grupos divididas em agrupamentos regionais.</li>
+            </ul>
+        </div>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>⚽ Portal Copa do Mundo América do Norte 2026 - Desenvolvido para acompanhamento informativo.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.7;">FIFA, Copa do Mundo e marcas associadas são propriedades exclusivas da entidade oficial.</p>
+    </footer>
+
+    <script>
+        console.log("Banco de dados informativo de 2026 injetado com sucesso.");
+    </script>
+</body>
+</html>
